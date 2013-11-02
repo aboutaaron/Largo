@@ -4,12 +4,12 @@
  * Single Post Template: Pimp My Story!
  * Description: Test longform template
  */
-get_header( 'slim' );
+get_header( 'slim' ); ?>
 
-while ( have_posts() ) : the_post();
-?>
 
-<div id="content" class="span12" role="main">
+<section id="main" class="row-fluid clearfix">
+<?php while ( have_posts() ) : the_post(); ?>
+
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'hnews item' ); ?> itemscope itemtype="http://schema.org/Article">
 
 		<header>
@@ -36,10 +36,9 @@ while ( have_posts() ) : the_post();
 		</footer>
 
 	</article>
-</div><!--#content-->
 
-<?php
-endwhile; // end of the loop.
+<?php endwhile; // end of the loop ?>
 
-get_footer();
-?>
+</section> <!-- #main -->
+
+<?php get_footer( 'slim' ); ?>

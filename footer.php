@@ -6,9 +6,9 @@
  */
 ?>
 
-	</div> <!-- #main -->
+</div> <!-- #page -->
 
-</div><!-- #page -->
+</div> <!-- #main -->
 
 <div class="footer-bg clearfix">
 	<footer id="site-footer">

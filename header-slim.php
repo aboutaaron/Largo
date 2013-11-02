@@ -45,7 +45,4 @@
 
 <body <?php body_class(); ?>>
 
-<div class="global-nav-bg">
-</div>
-
-<div id="main" class="row-fluid clearfix">
+<header class="global-nav-bg"></header>
