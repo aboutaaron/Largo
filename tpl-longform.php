@@ -29,7 +29,7 @@ while ( have_posts() ) : the_post();
 
 		<div class="entry-content clearfix" itemprop="articleBody">
 			<?php largo_entry_content( $post ); ?>
-		</div><
+		</div>
 
 
 		<footer class="post-meta bottom-meta">
