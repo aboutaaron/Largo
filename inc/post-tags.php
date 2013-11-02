@@ -226,7 +226,6 @@ if ( ! function_exists( 'largo_entry_content' ) ) {
  * @return formatted output in html (or echo)
  * @since 1.0
  */
-/*
 if ( ! function_exists( 'largo_custom_wp_link_pages' ) ) {
 	function largo_custom_wp_link_pages( $args ) {
 		$defaults = array(
@@ -292,7 +291,7 @@ if ( ! function_exists( 'largo_custom_wp_link_pages' ) ) {
 		return $output;
 	}
 }
-*/
+
 /**
  * Make a nicer-looking excerpt regardless of how an author has been using excerpts in the past
  *
