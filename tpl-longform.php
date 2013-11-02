@@ -5,19 +5,41 @@
  * Description: Test longform template
  */
 get_header( 'slim' );
+
+while ( have_posts() ) : the_post();
 ?>
 
 <div id="content" class="span12" role="main">
-	<?php
-		while ( have_posts() ) : the_post();
-			if ( is_page() ) {
-				get_template_part( 'content', 'page' );
-			} else {
-				get_template_part( 'content', 'single' );
-				comments_template( '', true );
-			}
-		endwhile; // end of the loop.
-	?>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'hnews item' ); ?> itemscope itemtype="http://schema.org/Article">
+
+		<header>
+	 		<h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
+	 		<h5 class="byline"><?php largo_byline(); ?></h5>
+
+	 		<meta itemprop="description" content="<?php echo strip_tags(largo_excerpt( $post, 5, false, '', false ) ); ?>" />
+	 		<meta itemprop="datePublished" content="<?php echo get_the_date( 'c' ); ?>" />
+	 		<meta itemprop="dateModified" content="<?php echo get_the_modified_date( 'c' ); ?>" />
+	 		<?php
+	 			if ( has_post_thumbnail( $post->ID ) ) {
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+					echo '<meta itemprop="image" content="' . $image[0] . '" />';
+				}
+	 		?>
+		</header>
+
+		<div class="entry-content clearfix" itemprop="articleBody">
+			<?php largo_entry_content( $post ); ?>
+		</div><
+
+
+		<footer class="post-meta bottom-meta">
+		</footer>
+
+	</article>
 </div><!--#content-->
 
-<?php get_footer(); ?>
+<?php
+endwhile; // end of the loop.
+
+get_footer();
+?>
