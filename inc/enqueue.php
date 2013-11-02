@@ -8,9 +8,16 @@
 if ( ! function_exists( 'largo_enqueue_js' ) ) {
 	function largo_enqueue_js() {
 
-		//Modernizr and our primary stylesheet
-		wp_enqueue_style( 'largo-stylesheet', get_template_directory_uri().'/css/styles.css' );
-		//wp_enqueue_style( 'largo-stylesheet', get_template_directory_uri().'/css/style.css' );	//often overridden by custom-less-variables version
+		//if ( is_page_template('tpl-longform.php') ) {
+		wp_enqueue_style( 'pimp', get_template_directory_uri().'/css/pimp.css' );
+		wp_enqueue_script( 'pimp', get_template_directory_uri() . '/js/pimp.js', array( 'jquery' ), '1.0', true );
+		//}
+
+		//Modernizr and our primary stylesheet // old
+		if ( is_home() ) {
+			wp_enqueue_style( 'largo-stylesheet', get_template_directory_uri().'/css/style.css' ); //often overridden by custom-less-variables version
+		}
+
 		wp_enqueue_script( 'largo-modernizr', get_template_directory_uri() . '/js/modernizr.custom.js' );
 
 		//the jquery plugins and our main js file
@@ -33,11 +40,6 @@ if ( ! function_exists( 'largo_enqueue_js' ) ) {
 			if ( of_get_option( 'show_related_content' ) )
 				wp_enqueue_script( 'idTabs', get_template_directory_uri() . '/js/jquery.idTabs.js', array( 'jquery' ), '1.0', true );
 		}
-
-		//if ( is_page_template('tpl-longform.php') ) {
-		wp_enqueue_style( 'pimp', get_template_directory_uri().'/css/pimp.css' );
-		wp_enqueue_script( 'pimp', get_template_directory_uri() . '/js/pimp.js', array( 'jquery' ), '1.0', true );
-		//}
 
 		//Load the child theme's style.css if we're actually running a child theme of Largo
 		$theme = wp_get_theme();
