@@ -9,6 +9,7 @@ if ( ! function_exists( 'largo_enqueue_js' ) ) {
 	function largo_enqueue_js() {
 
 		//Modernizr and our primary stylesheet
+		wp_enqueue_style( 'largo-stylesheet', get_template_directory_uri().'/css/styles.css' );
 		//wp_enqueue_style( 'largo-stylesheet', get_template_directory_uri().'/css/style.css' );	//often overridden by custom-less-variables version
 		wp_enqueue_script( 'largo-modernizr', get_template_directory_uri() . '/js/modernizr.custom.js' );
 
