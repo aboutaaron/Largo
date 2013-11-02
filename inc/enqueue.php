@@ -33,6 +33,11 @@ if ( ! function_exists( 'largo_enqueue_js' ) ) {
 				wp_enqueue_script( 'idTabs', get_template_directory_uri() . '/js/jquery.idTabs.js', array( 'jquery' ), '1.0', true );
 		}
 
+		if ( is_page_template('tpl-longform.php') ) {
+			wp_enqueue_style( 'pimp', get_template_directory_uri().'/css/pimp.css' );
+			wp_enqueue_script( 'pimp', get_template_directory_uri() . '/js/pimp.js', array( 'jquery' ), '1.0', true );
+		}
+
 		//Load the child theme's style.css if we're actually running a child theme of Largo
 		$theme = wp_get_theme();
 		if ( is_object($theme->parent()) && $theme->parent()->Template == 'largo' ) {
