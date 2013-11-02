@@ -70,13 +70,13 @@ if( !function_exists( 'get_post_template' ) ) {
 }
 
 /**
- * Whether currently in a page template.
+ * Whether currently in a post template.
  *
- * This template tag allows you to determine if you are in a page template.
+ * This template tag allows you to determine if you are in a single post template.
  * You can optionally provide a template name and then the check will be
  * specific to that template.
  *
- * @since 2.5.0
+ * @since 1.0
  * @uses $wp_query
  *
  * @param string $template The specific template name if specific matching is required.
